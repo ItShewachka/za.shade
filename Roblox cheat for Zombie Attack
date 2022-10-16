@@ -1,0 +1,77 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Shade", HidePremium = true, SaveConfig = false, ConfigFolder = "Evade"})
+
+local Welcome = Window:MakeTab({
+	Name = "Welcome",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Aimbot = Window:MakeTab({
+	Name = "Aimbot",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Player = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Aimsettings = Aimbot:AddSection({
+	Name = "Aimbot Settings"
+})
+
+local Playersettings = Player:AddSection({
+	Name = "Player Settings"
+})
+
+Welcome:AddParagraph("Name","Shade")
+Welcome:AddParagraph("Coder","ItShewachka")
+Welcome:AddParagraph("Game","Zombie Attack")
+Aimbot:AddParagraph("Attention","Once activated, you can no longer turn it off.")
+
+Aimsettings:AddButton({
+	Name = "Silent Aimbot",
+	Callback = function()
+    local oPlBfNRNfyJz = game.Players.LocalPlayer;local ZtYjkXDgMlxc = "Head";local dAociCiEvJMB = function()local QInaUnazu = math.huge;local J8IhabzuN = nil;for iUIhaztYUbnZ,uUhsabzyuG in next, game.Workspace:GetDescendants() do if uUhsabzyuG:FindFirstChild(ZtYjkXDgMlxc) and oPlBfNRNfyJz.Character:FindFirstChild(ZtYjkXDgMlxc) and not uUhsabzyuG:FindFirstChild('Guns') and uUhsabzyuG.Parent.Name ~= "deadenemies" then local IIhzabUtd = (uUhsabzyuG:FindFirstChild(ZtYjkXDgMlxc).Position-oPlBfNRNfyJz.Character.Head.Position).magnitude;if IIhzabUtd < QInaUnazu then QInaUnazu = IIhzabUtd;J8IhabzuN = uUhsabzyuG;end;end;end;return J8IhabzuN;end;local GtsZsUbJOuJk = oPlBfNRNfyJz:GetMouse();local tZcInsImQQfX = getrawmetatable(game);local sCtxkbklLnmy = tZcInsImQQfX.__index;setreadonly(tZcInsImQQfX,false);tZcInsImQQfX.__index = newcclosure(function(hFcjBtZBXthW,tGNxqMIMabVS)if hFcjBtZBXthW == GtsZsUbJOuJk and tostring(tGNxqMIMabVS) == "Hit" then return dAociCiEvJMB():FindFirstChild(ZtYjkXDgMlxc).CFrame;end;return sCtxkbklLnmy(hFcjBtZBXthW,tGNxqMIMabVS)end)setreadonly(tZcInsImQQfX,true)
+    OrionLib:MakeNotification({
+	Name = "Silent Aimbot",
+	Content = "Aimbot has been successfully activated.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
+
+Playersettings:AddButton({
+	Name = "Spacefly",
+	Callback = function()
+      		local InfiniteJumpEnabled = true
+            game:GetService("UserInputService").JumpRequest:connect(function()
+	        if InfiniteJumpEnabled then
+	    	game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+    OrionLib:MakeNotification({
+	Name = "Spacefly",
+	Content = "Spacefly has been successfully activated.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+  	end    
+})
+
+Playersettings:AddSlider({
+	Name = "Speed",
+	Min = 16,
+	Max = 100,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "s",
+	Callback = function(s)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+	end    
+})
